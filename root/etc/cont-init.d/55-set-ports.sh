@@ -5,7 +5,7 @@ PORTS_RC="/config/rtorrent/ports.rc"
 
 echo "$(env)"
 
-if [[ ! -e "$PORTS_RC" ]]; then
+if [[ -e "$PORTS_RC" ]]; then
   echo "Conserve ports.rc existant"
 else
   [[ -z "$BT_PORT"  ]] && BT_PORT=50000
