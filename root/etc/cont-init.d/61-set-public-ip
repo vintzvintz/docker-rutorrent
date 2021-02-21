@@ -1,0 +1,14 @@
+#!/bin/bash
+
+URL='ipecho.net/plain'
+IP_RC='/config/rtorrent/public-ip.rc'
+
+IP=$(curl -s "$URL")
+if [[ $? && -n "$IP" ]];
+then
+	echo "Adresse IP détectée $IP avec $URL"	
+  echo "ip=${IP}" > "$IP_RC"
+else
+  echo "IP publique non détectée avec $URL"  
+fi
+

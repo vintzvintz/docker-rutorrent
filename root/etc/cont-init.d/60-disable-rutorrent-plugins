@@ -1,0 +1,33 @@
+#!/bin/bash
+# -*- coding: UTF8 -*-
+
+WHITE='\e[0;37m';
+RED='\e[0;31m';
+GREEN='\e[0;32m';
+
+PLUGINLIST=/config/allowed_plugins
+
+[[ ! -e "$PLUGINLIST" ]] && cp -v /defaults/allowed_plugins "$PLUGINLIST"
+
+#echo "Customcript : rep de travail = $(pwd)"
+
+for plugin in /app/rutorrent/plugins/*
+do
+	filename=$(basename "$plugin")
+#	echo "plugin $plugin basename $filename"
+	if [[ $(grep "^${filename}\$" "$PLUGINLIST") ]]; 
+	then
+		echo -e "${GREEN}${filename}${WHITE} conservé"
+	else
+		rm -r "$plugin"
+		echo -e "${RED}${filename}${WHITE} supprimé"
+	fi
+done
+
+
+
+
+
+
+
+
