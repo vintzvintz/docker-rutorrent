@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/with-contenv bash
 # -*- coding: UTF8 -*-
 
 PORTS_RC="/config/rtorrent/ports.rc"
@@ -14,4 +14,4 @@ else
   echo "network.port_range.set = ${BT_PORT}-${BT_PORT}" >> "$PORTS_RC"
 fi
 
-cat $PORTS_RC
+cat "$PORTS_RC"
