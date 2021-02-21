@@ -3,8 +3,6 @@
 
 PORTS_RC="/config/rtorrent/ports.rc"
 
-echo "$(env)"
-
 if [[ -e "$PORTS_RC" ]]; then
   echo "Conserve ports.rc existant"
 else
